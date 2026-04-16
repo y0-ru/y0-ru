@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Rosey ✨</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "Quicksand", sans-serif;
+      background: linear-gradient(135deg, #1a1024, #2b1d3a, #3a2b4f);
+      color: #f3eaff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ✨ Sparkles */
+    .sparkle {
+      position: absolute;
+      width: 4px;
+      height: 4px;
+      background: #fff;
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: float 6s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); opacity: 0.2; }
+      50% { transform: translateY(-40px); opacity: 1; }
+      100% { transform: translateY(0); opacity: 0.2; }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 2.5rem;
+      text-align: center;
+      max-width: 650px;
+      box-shadow: 0 0 40px rgba(255, 200, 255, 0.15);
+      z-index: 1;
+    }
+
+    .pfp {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 3px solid #ffc8ff;
+      box-shadow: 0 0 20px rgba(255, 200, 255, 0.6);
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 2.3rem;
+      margin: 0.5rem 0;
+      color: #ffd6ff;
+      text-shadow: 0 0 8px rgba(255, 200, 255, 0.5);
+    }
+
+    .bio {
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .badge {
+      width: 55px;
+      height: 55px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(6px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 10px rgba(255, 200, 255, 0.2);
+    }
+
+    .badge:hover {
+      transform: scale(1.15) rotate(3deg);
+      box-shadow: 0 0 18px rgba(255, 200, 255, 0.6);
+    }
+
+    .badge img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .tooltip {
+      position: absolute;
+      bottom: -30px;
+      background: rgba(30, 20, 40, 0.9);
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.2s;
+      white-space: nowrap;
+    }
+
+    .badge:hover .tooltip {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✨ Generate sparkles -->
+  <script>
+    for (let i = 0; i < 25; i++) {
+      const s = document.createElement("div");
+      s.className = "sparkle";
+      s.style.left = Math.random() * 100 + "vw";
+      s.style.top = Math.random() * 100 + "vh";
+      s.style.animationDuration = (4 + Math.random() * 4) + "s";
+      document.body.appendChild(s);
+    }
+  </script>
+
+  <div class="container">
+    
+    <!-- PFP -->
+    <img src="pfp.png" alt="PFP" class="pfp">
+
+    <!-- Title -->
+    <h1>Hello hello ✨</h1>
+
+    <!-- Bio -->
+    <div class="bio">
+      I'm Rosey, a tech goblin and magical girl wannabe ☆
+    </div>
+
+    <!-- Badges -->
+    <div class="badges" id="badgeContainer"></div>
+
+  </div>
+
+  <script>
+    async function loadBadges() {
+      const res = await fetch("badges.json");
+      const badges = await res.json();
+
+      const container = document.getElementById("badgeContainer");
+
+      badges.forEach(b => {
+        const badge = document.createElement("div");
+        badge.className = "badge";
+
+        const img = document.createElement("img");
+        img.src = b.icon;
+
+        const tooltip = document.createElement("div");
+        tooltip.className = "tooltip";
+        tooltip.innerText = b.name;
+
+        badge.appendChild(img);
+        badge.appendChild(tooltip);
+        container.appendChild(badge);
+      });
+    }
+
+    loadBadges();
+  </script>
+
+</body>
+</html>
