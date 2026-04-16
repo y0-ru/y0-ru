@@ -2,10 +2,9 @@
   "pfp": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283758675955732/pfp.png?ex=69e20bb2&is=69e0ba32&hm=dd13efffa61db4a6cc6b8725ac18577f333b8a1d6f674d6f835adf77e7dc9a71&",
 
   "icons": {
-    "js": "https://files.catbox.moe/jsicon.png",
-    "html": "https://files.catbox.moe/htmlicon.png",
-    "css": "https://files.catbox.moe/cssicon.png",
-    "github": "https://files.catbox.moe/githubicon.png",
-    "twitter": "https://files.catbox.moe/twittericon.png"
+    "js": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283757128253461/js.gif?ex=69e20bb2&is=69e0ba32&hm=fd8a9c2c42dbf40c29c362416fe5cdc14d94f6d2e3a104321aa7c9dbf617bba1&",
+    "html": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283756134076486/html.png?ex=69e20bb1&is=69e0ba31&hm=d293b193a955221db26e3d4c110b78701976efadbc0e6de0ac3a58fd73fdb565&",
+    "css": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283754162884618/css.png?ex=69e20bb1&is=69e0ba31&hm=fd9d80cb647c5f6ff3fefb7f3b79965773b2c7f2c621102dd2c07fb73b88e40e&",
+    "github": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283757849415710/github.png?ex=69e20bb2&is=69e0ba32&hm=9daf308e2e790a02a51a41e27c0c27775e4cf76159b0491fa977a865ee37e150&",
   }
 }
