@@ -1,16 +1,10 @@
 [
   { "name": "JavaScript", "icon": "js" },
   { "name": "HTML5", "icon": "html" },
-  { "name": "CSS3", "icon": "css" },
-
   { "name": "Git Traveler", "icon": "git" },
   { "name": "GitHub Archivist", "icon": "github" },
-
-  { "name": "VS Code Mage", "icon": "vscode" },
   { "name": "Discord Entity", "icon": "discord" },
-
   { "name": "Music Enjoyer", "icon": "spotify" },
-
   { "name": "Chaos Engineer", "icon": "fallback" },
   { "name": "Magical Girl Prototype ✨", "icon": "fallback" }
 ]
