@@ -1,6 +1,5 @@
 [
-  { "name": "JavaScript", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", "rarity": "rare" },
-  { "name": "HTML5", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg", "rarity": "common" },
-  { "name": "CSS3", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg", "rarity": "rare" },
-  { "name": "Git", "icon": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg", "rarity": "legendary" }
+  { "name": "JavaScript", "icon": "js.png" },
+  { "name": "HTML5", "icon": "html.png" },
+  { "name": "CSS3", "icon": "css.png" }
 ]
