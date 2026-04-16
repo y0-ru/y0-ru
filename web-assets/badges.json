@@ -1,7 +1,7 @@
 [
   { "name": "JavaScript", "icon": "js" },
-  { "name": "HTML5", "icon": "html5" },
-  { "name": "CSS3", "icon": "css3" },
+  { "name": "HTML5", "icon": "html" },
+  { "name": "CSS3", "icon": "css" },
 
   { "name": "Git Traveler", "icon": "git" },
   { "name": "GitHub Archivist", "icon": "github" },
