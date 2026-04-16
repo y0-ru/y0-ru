@@ -1,16 +1,20 @@
 {
-  "pfp": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283758675955732/pfp.png?ex=69e20bb2&is=69e0ba32&hm=dd13efffa61db4a6cc6b8725ac18577f333b8a1d6f674d6f835adf77e7dc9a71&",
+  "pfp": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283758675955732/pfp.png",
 
   "icons": {
     "js": "https://cdn.simpleicons.org/javascript/F7DF1E",
     "html": "https://cdn.simpleicons.org/html5/E34F26",
     "css": "https://cdn.simpleicons.org/css3/1572B6",
+
     "git": "https://cdn.simpleicons.org/git/F05032",
     "github": "https://cdn.simpleicons.org/github/FFFFFF",
+
     "vscode": "https://cdn.simpleicons.org/visualstudiocode/007ACC",
     "discord": "https://cdn.simpleicons.org/discord/5865F2",
-    "game": "https://cdn.simpleicons.org/steam/000000",
+
     "music": "https://cdn.simpleicons.org/spotify/1DB954",
+    "game": "https://cdn.simpleicons.org/steam/000000",
+
     "fallback": "https://cdn.simpleicons.org/question/AAAAAA"
   }
 }
