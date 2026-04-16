@@ -1,10 +1,11 @@
 {
-  "pfp": "web-assets/images/pfp.png",
+  "pfp": "https://cdn.discordapp.com/attachments/1487430568563179552/1494283758675955732/pfp.png?ex=69e20bb2&is=69e0ba32&hm=dd13efffa61db4a6cc6b8725ac18577f333b8a1d6f674d6f835adf77e7dc9a71&",
 
   "icons": {
-    "js": "web-assets-images/js.png",
-    "html": "web-assets-images/html.png",
-    "css": "web-assets-images/css.png",
-    "github": "web-assets-images/github.png",
+    "js": "https://files.catbox.moe/jsicon.png",
+    "html": "https://files.catbox.moe/htmlicon.png",
+    "css": "https://files.catbox.moe/cssicon.png",
+    "github": "https://files.catbox.moe/githubicon.png",
+    "twitter": "https://files.catbox.moe/twittericon.png"
   }
 }
