@@ -1,0 +1,20 @@
+{
+  "title": "Rosey ✨",
+  "header": "Hello hello ✨",
+  "bio": "I'm Rosey, a tech goblin and magical girl wannabe ☆",
+  "about": "I build cute chaotic things and collect random tech knowledge.",
+
+  "font": {
+    "url": "https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap",
+    "family": "'Quicksand', sans-serif"
+  },
+
+  "colors": {
+    "bg1": "#1a1024",
+    "bg2": "#2b1d3a",
+    "bg3": "#3a2b4f",
+    "text": "#f3eaff",
+    "accent": "#ffd6ff",
+    "glow": "#ffc8ff"
+  }
+}
