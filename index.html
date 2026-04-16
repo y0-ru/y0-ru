@@ -1,213 +1,242 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Rosey ✨</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<title id="title">Loading...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+<link id="fontLink" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      font-family: "Quicksand", sans-serif;
-      background: linear-gradient(135deg, #1a1024, #2b1d3a, #3a2b4f);
-      color: #f3eaff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+<style>
+:root {
+  --bg1:#1a1024; --bg2:#2b1d3a; --bg3:#3a2b4f;
+  --text:#f3eaff; --accent:#ffd6ff; --glow:#ffc8ff;
+}
 
-    .container {
-      max-width: 750px;
-      padding: 2rem;
-      text-align: center;
-    }
+body {
+  margin:0;
+  font-family:var(--font, sans-serif);
+  background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  color:var(--text);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
+  overflow-x:hidden;
+}
 
-    h2 {
-      margin-top: 2rem;
-      color: #ffd6ff;
-    }
+/* ✨ sparkles */
+.sparkle {
+  position:absolute;
+  width:4px;height:4px;
+  background:#fff;border-radius:50%;
+  opacity:0.6;
+  animation:float 6s infinite ease-in-out;
+}
+@keyframes float {
+  0%{transform:translateY(0);opacity:.2}
+  50%{transform:translateY(-40px);opacity:1}
+  100%{transform:translateY(0);opacity:.2}
+}
 
-    .pfp {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      border: 3px solid #ffc8ff;
-      box-shadow: 0 0 20px rgba(255, 200, 255, 0.6);
-      object-fit: cover;
-    }
+/* 💫 intro */
+.intro {
+  position:fixed;inset:0;
+  background:#0a0612;
+  display:flex;justify-content:center;align-items:center;
+  z-index:999;
+  animation:fadeOut 2s forwards 2s;
+}
+@keyframes fadeOut {to{opacity:0;visibility:hidden}}
 
-    .bio {
-      margin-bottom: 1rem;
-    }
+.container {
+  max-width:750px;
+  padding:2rem;
+  text-align:center;
+  z-index:1;
+}
 
-    /* badges & links */
-    .badges, .links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-    }
+.pfp {
+  width:130px;height:130px;
+  border-radius:50%;
+  border:3px solid var(--glow);
+  box-shadow:0 0 20px var(--glow);
+}
 
-    .badge {
-      width: 55px;
-      height: 55px;
-      border-radius: 16px;
-      background: rgba(255,255,255,0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      cursor: pointer;
-      transition: 0.25s;
-    }
+.badges,.links {
+  display:flex;flex-wrap:wrap;justify-content:center;gap:12px;
+}
 
-    .badge:hover {
-      transform: scale(1.15);
-    }
+.badge {
+  width:55px;height:55px;
+  border-radius:16px;
+  background:rgba(255,255,255,0.08);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;
+  cursor:pointer;
+  transition:.25s;
+}
+.badge:hover {
+  transform:scale(1.15);
+  box-shadow:0 0 12px var(--glow);
+}
+.badge img {width:28px}
 
-    .badge img {
-      width: 28px;
-    }
+.tooltip {
+  position:absolute;
+  bottom:-28px;
+  background:#222;
+  padding:4px 8px;
+  border-radius:8px;
+  font-size:.75rem;
+  opacity:0;
+}
+.badge:hover .tooltip {opacity:1}
 
-    .tooltip {
-      position: absolute;
-      bottom: -28px;
-      background: rgba(20,20,30,0.9);
-      padding: 4px 8px;
-      border-radius: 8px;
-      font-size: 0.75rem;
-      opacity: 0;
-      transition: 0.2s;
-    }
+/* 🎴 cards */
+.projects {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.card {
+  background:rgba(255,255,255,0.06);
+  border-radius:16px;
+  padding:1rem;
+  cursor:pointer;
+  transition:.25s;
+}
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 0 15px var(--glow);
+}
 
-    .badge:hover .tooltip {
-      opacity: 1;
-    }
+/* 🌸 about */
+.about {
+  cursor:pointer;
+  margin:1rem 0;
+}
+.about-content {
+  max-height:0;
+  overflow:hidden;
+  transition:.3s;
+}
+.about.open .about-content {
+  max-height:200px;
+}
 
-    /* 🎴 project cards */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-      margin-top: 1rem;
-    }
-
-    .card {
-      background: rgba(255,255,255,0.06);
-      border-radius: 16px;
-      padding: 1rem;
-      text-align: left;
-      transition: 0.25s;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-      box-shadow: 0 0 15px rgba(255,200,255,0.3);
-    }
-
-    .card h3 {
-      margin: 0;
-      color: #ffd6ff;
-    }
-
-    .card p {
-      font-size: 0.9rem;
-      opacity: 0.85;
-    }
-  </style>
+/* 💥 ripple */
+.ripple {
+  position:fixed;
+  border-radius:50%;
+  background:rgba(255,255,255,0.3);
+  transform:scale(0);
+  animation:ripple .6s linear;
+}
+@keyframes ripple {
+  to {transform:scale(8);opacity:0}
+}
+</style>
 </head>
 
 <body>
+
+<div class="intro"><h1>✨ Transforming... ✨</h1></div>
+
 <div class="container">
+  <img id="pfp" class="pfp">
+  <h1 id="hello"></h1>
+  <div id="bio"></div>
 
-  <img src="pfp.png" class="pfp">
-
-  <h1>Hello hello ✨</h1>
-  <div class="bio">
-    I'm Rosey, a tech goblin and magical girl wannabe ☆
+  <div class="about" onclick="this.classList.toggle('open')">
+    💌 About me
+    <div class="about-content" id="aboutText"></div>
   </div>
 
-  <!-- 🌸 Badges -->
   <h2>✨ Skills</h2>
-  <div class="badges" id="badgeContainer"></div>
+  <div class="badges" id="badges"></div>
 
-  <!-- 🔗 Links -->
   <h2>🔗 My Links</h2>
-  <div class="links" id="linkContainer"></div>
+  <div class="links" id="links"></div>
 
-  <!-- 🎴 Projects -->
   <h2>🎴 Projects</h2>
-  <div class="projects" id="projectContainer"></div>
-
+  <div class="projects" id="projects"></div>
 </div>
 
 <script>
-/* load skill badges */
-async function loadBadges() {
-  const res = await fetch("badges.json");
-  const data = await res.json();
-  const container = document.getElementById("badgeContainer");
+let IMAGES = {};
 
-  data.forEach(b => {
-    const el = document.createElement("div");
-    el.className = "badge";
+async function loadImages(){
+  IMAGES = await fetch("web-assets/images.json").then(r=>r.json());
+}
 
-    el.innerHTML = `
-      <img src="web-assets/${b.icon}">
-      <div class="tooltip">${b.name}</div>
-    `;
-    container.appendChild(el);
+async function loadConfig(){
+  const c = await fetch("web-assets/config.json").then(r=>r.json());
+
+  document.title = c.title;
+  hello.innerText = c.header;
+  bio.innerText = c.bio;
+  aboutText.innerText = c.about;
+
+  pfp.src = IMAGES.pfp;
+
+  fontLink.href = c.font.url;
+  document.documentElement.style.setProperty("--font", c.font.family);
+
+  Object.entries(c.colors).forEach(([k,v])=>{
+    document.documentElement.style.setProperty(`--${k}`,v);
   });
 }
 
-/* load links */
-async function loadLinks() {
-  const res = await fetch("links.json");
-  const data = await res.json();
-  const container = document.getElementById("linkContainer");
+async function loadJSON(file,id,type){
+  const data = await fetch("web-assets/"+file).then(r=>r.json());
+  const el = document.getElementById(id);
 
-  data.forEach(l => {
-    const el = document.createElement("div");
-    el.className = "badge";
-
-    el.innerHTML = `
-      <img src="web-assets/${l.icon}">
-      <div class="tooltip">${l.name}</div>
-    `;
-
-    el.onclick = () => window.open(l.url, "_blank");
-    container.appendChild(el);
+  data.forEach(i=>{
+    if(type!=="project"){
+      const b=document.createElement("div");
+      b.className="badge";
+      b.innerHTML=`
+        <img src="${IMAGES.icons[i.icon]}">
+        <div class="tooltip">${i.name}</div>`;
+      if(type==="link") b.onclick=()=>window.open(i.url);
+      el.appendChild(b);
+    } else {
+      const c=document.createElement("div");
+      c.className="card";
+      c.innerHTML=`<h3>${i.name}</h3><p>${i.description}</p>`;
+      c.onclick=()=>window.open(i.url);
+      el.appendChild(c);
+    }
   });
 }
 
-/* load projects */
-async function loadProjects() {
-  const res = await fetch("projects.json");
-  const data = await res.json();
-  const container = document.getElementById("projectContainer");
+/* effects */
+document.addEventListener("click",e=>{
+  const r=document.createElement("div");
+  r.className="ripple";
+  r.style.left=e.clientX+"px";
+  r.style.top=e.clientY+"px";
+  document.body.appendChild(r);
+  setTimeout(()=>r.remove(),600);
+});
 
-  data.forEach(p => {
-    const card = document.createElement("div");
-    card.className = "card";
-
-    card.innerHTML = `
-      <h3>${p.name}</h3>
-      <p>${p.description}</p>
-    `;
-
-    card.onclick = () => window.open(p.url, "_blank");
-    container.appendChild(card);
-  });
+for(let i=0;i<25;i++){
+  const s=document.createElement("div");
+  s.className="sparkle";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  document.body.appendChild(s);
 }
 
-loadBadges();
-loadLinks();
-loadProjects();
+async function init(){
+  await loadImages();
+  await loadConfig();
+  loadJSON("badges.json","badges","badge");
+  loadJSON("links.json","links","link");
+  loadJSON("projects.json","projects","project");
+}
+init();
 </script>
 
 </body>
