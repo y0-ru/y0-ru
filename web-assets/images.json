@@ -1,0 +1,11 @@
+{
+  "pfp": "web-assets-images/pfp.png",
+
+  "icons": {
+    "js": "web-assets-images/js.png",
+    "html": "web-assets-images/html.png",
+    "css": "web-assets-images/css.png",
+    "github": "web-assets-images/github.png",
+    "twitter": "web-assets-images/twitter.png"
+  }
+}
